@@ -35,9 +35,7 @@ var jjtApingFlickr = angular.module("jtt_aping_flickr", ['jtt_flickr'])
                         }).error(function (_data) {
                             //on error
                         });
-                    }
-
-                    if(request.tags) {
+                    } else if(request.tags) {
                         flickrSearchObject.tags = request.tags;
 
                         if(request.tagmode) {
