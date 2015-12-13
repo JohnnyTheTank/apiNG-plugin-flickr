@@ -42,7 +42,7 @@ var jjtApingFlickr = angular.module("jtt_aping_flickr", ['jtt_flickr'])
                             flickrSearchObject.tagmode = request.tagmode;
                         }
 
-                        flickrFactory.getImagesFromUserById(flickrSearchObject).success(function(_data){
+                        flickrFactory.getImagesByTags(flickrSearchObject).success(function(_data){
                             apingController.concatToResults(apingFlickrHelper.getObjectByJsonData(_data, appSettings.model, flickrSearchObject.items));
                         }).error(function (_data) {
                             //on error
