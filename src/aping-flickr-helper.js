@@ -64,18 +64,10 @@ jjtApingFlickr.service('apingFlickrHelper', ['apingModels', 'apingTimeHelper', '
             "blog_link": _item.author_id ? this.getThisPlattformLink() + _item.author_id : false,
             "timestamp": apingTimeHelper.getTimestampFromDateString(_item.published, 1000, 3600 * 1000),
             "post_url": _item.link,
+            "text" : _item.title,
             "intern_id": (_item.link).split("flickr.com").length >= 2 ? (_item.link).split("flickr.com")[1] : false,
             "img_url": _item.media ? (_item.media.m).replace("_m.", ".") : false,
-            "text": _item.description || false,
         });
-
-        if (_item.title) {
-            if (socialObject.text) {
-                socialObject.caption = _item.title;
-            } else {
-                socialObject.text = _item.title;
-            }
-        }
 
         socialObject.date_time = new Date(socialObject.timestamp);
 
