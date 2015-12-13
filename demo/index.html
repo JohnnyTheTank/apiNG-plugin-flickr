@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flickr Demo</title>
+
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../bower_components/angular/angular.min.js"></script>
+    <script src="../bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+    <script src="../bower_components/apiNG/dist/aping.min.js"></script>
+    <script src="aping-config.js"></script>
+    <script src="app.js"></script>
+    <script src="../bower_components/angular-flickr-api-factory/src/angular-flickr-api-factory.js"></script>
+    <script src="../src/aping-flickr-directive.js"></script>
+    <script src="../src/aping-flickr-helper.js"></script>
+</head>
+<body ng-app="app">
+    <h1>{'userId':'67221971@N06'}</h1>
+    <aping model="image" aping-flickr="[{'userId':'67221971@N06'}]"></aping>
+    <hr>
+
+    <h1>{'tags':'fcbayern,dortmund', 'tagmode':'all'}</h1>
+    <aping model="social" aping-flickr="[{'tags':'fcbayern,dortmund', 'tagmode':'all'}]"></aping>
+    <hr>
+</body>
+</html>

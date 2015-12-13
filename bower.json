@@ -1,0 +1,31 @@
+{
+  "name": "apiNG-plugin-flickr",
+  "homepage": "https://github.com/JohnnyTheTank/apiNG-plugin-flickr",
+  "authors": [
+    "Jonathan Hornung <jonathan.hornung@gmail.com>"
+  ],
+  "version": "0.1.0",
+  "description": "flickr plugin for apiNG",
+  "main": "dist/apiNG-plugin-flickr.min.js",
+  "moduleType": [],
+  "keywords": [
+    "aping",
+    "flickr",
+    "angularjs",
+    "rest",
+    "api",
+    "json"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "apiNG": "*",
+    "angular-flickr-api-factory": "*"
+  }
+}
