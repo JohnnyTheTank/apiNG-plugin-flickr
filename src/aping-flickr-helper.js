@@ -15,6 +15,13 @@ jjtApingFlickr.service('apingFlickrHelper', ['apingModels', 'apingTimeHelper', '
         return "http://flickr.com/";
     };
 
+    this.getUserNameFromString = function (_string) {
+        var userName = false;
+        userName = _string.replace("nobody@flickr.com (","");
+        userName = userName.substr(0, userName.length-1);
+        return userName;
+    };
+
     this.getObjectByJsonData = function (_data, _model, _items) {
         var requestResults = [];
         if (_data) {
@@ -59,7 +66,7 @@ jjtApingFlickr.service('apingFlickrHelper', ['apingModels', 'apingTimeHelper', '
 
         //fill _item in socialObject
         $.extend(true, socialObject, {
-            "blog_name": _item.author || false,
+            "blog_name": _item.author ? this.getUserNameFromString(_item.author) : false,
             "blog_id": _item.author_id || false,
             "blog_link": _item.author_id ? this.getThisPlattformLink() + _item.author_id : false,
             "timestamp": apingTimeHelper.getTimestampFromDateString(_item.published, 1000, 3600 * 1000),
