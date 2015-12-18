@@ -22,6 +22,7 @@ var jjtApingFlickr = angular.module("jtt_aping_flickr", ['jtt_flickr'])
 
                     var helperObject = {
                         items: request.items || appSettings.items,
+                        model: appSettings.model,
                     };
 
                     if(request.language) {
@@ -31,7 +32,7 @@ var jjtApingFlickr = angular.module("jtt_aping_flickr", ['jtt_flickr'])
                     if(request.userId) {
                         helperObject.id = request.userId;
                         flickrFactory.getImagesFromUserById(helperObject).success(function(_data){
-                            apingController.concatToResults(apingFlickrHelper.getObjectByJsonData(_data, appSettings.model, helperObject));
+                            apingController.concatToResults(apingFlickrHelper.getObjectByJsonData(_data, helperObject));
                         }).error(function (_data) {
                             //on error
                         });
@@ -43,7 +44,7 @@ var jjtApingFlickr = angular.module("jtt_aping_flickr", ['jtt_flickr'])
                         }
 
                         flickrFactory.getImagesByTags(helperObject).success(function(_data){
-                            apingController.concatToResults(apingFlickrHelper.getObjectByJsonData(_data, appSettings.model, helperObject));
+                            apingController.concatToResults(apingFlickrHelper.getObjectByJsonData(_data, helperObject));
                         }).error(function (_data) {
                             //on error
                         });
