@@ -22,7 +22,7 @@ jjtApingFlickr.service('apingFlickrHelper', ['apingModels', 'apingTimeHelper', '
         return userName;
     };
 
-    this.getObjectByJsonData = function (_data, _model, _items) {
+    this.getObjectByJsonData = function (_data, _model, _helperObject) {
         var requestResults = [];
         if (_data) {
             var _this = this;
@@ -30,7 +30,7 @@ jjtApingFlickr.service('apingFlickrHelper', ['apingModels', 'apingTimeHelper', '
             if (_data.items) {
 
                 angular.forEach(_data.items, function (value, key) {
-                    if (requestResults.length < _items) {
+                    if (requestResults.length < _helperObject.items) {
                         var tempResult = _this.getItemByJsonData(value, _model);
                         if (tempResult) {
                             requestResults.push(tempResult);

@@ -20,30 +20,30 @@ var jjtApingFlickr = angular.module("jtt_aping_flickr", ['jtt_flickr'])
 
                 requests.forEach(function (request) {
 
-                    var flickrSearchObject = {
+                    var helperObject = {
                         items: request.items || appSettings.items,
                     };
 
                     if(request.language) {
-                        flickrSearchObject.lang = request.language;
+                        helperObject.lang = request.language;
                     }
 
                     if(request.userId) {
-                        flickrSearchObject.id = request.userId;
-                        flickrFactory.getImagesFromUserById(flickrSearchObject).success(function(_data){
-                            apingController.concatToResults(apingFlickrHelper.getObjectByJsonData(_data, appSettings.model, flickrSearchObject.items));
+                        helperObject.id = request.userId;
+                        flickrFactory.getImagesFromUserById(helperObject).success(function(_data){
+                            apingController.concatToResults(apingFlickrHelper.getObjectByJsonData(_data, appSettings.model, helperObject));
                         }).error(function (_data) {
                             //on error
                         });
                     } else if(request.tags) {
-                        flickrSearchObject.tags = request.tags;
+                        helperObject.tags = request.tags;
 
                         if(request.tagmode) {
-                            flickrSearchObject.tagmode = request.tagmode;
+                            helperObject.tagmode = request.tagmode;
                         }
 
-                        flickrFactory.getImagesByTags(flickrSearchObject).success(function(_data){
-                            apingController.concatToResults(apingFlickrHelper.getObjectByJsonData(_data, appSettings.model, flickrSearchObject.items));
+                        flickrFactory.getImagesByTags(helperObject).success(function(_data){
+                            apingController.concatToResults(apingFlickrHelper.getObjectByJsonData(_data, appSettings.model, helperObject));
                         }).error(function (_data) {
                             //on error
                         });
