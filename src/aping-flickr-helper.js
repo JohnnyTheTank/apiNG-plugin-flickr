@@ -31,7 +31,7 @@ jjtApingFlickr.service('apingFlickrHelper', ['apingModels', 'apingTimeHelper', '
 
                 angular.forEach(_data.items, function (value, key) {
                     if (requestResults.length < _helperObject.items) {
-                        var tempResult = _this.getItemByJsonData(value, _helperObject.model);
+                        var tempResult = _this.getItemByJsonData(value, _helperObject);
                         if (tempResult) {
                             requestResults.push(tempResult);
                         }
@@ -43,19 +43,24 @@ jjtApingFlickr.service('apingFlickrHelper', ['apingModels', 'apingTimeHelper', '
         return requestResults;
     };
 
-    this.getItemByJsonData = function (_item, _model) {
+    this.getItemByJsonData = function (_item, _helperObject) {
         var returnObject = {};
-        if (_item && _model) {
-            switch (_model) {
-                case "social":
-                    returnObject = this.getSocialItemByJsonData(_item);
-                    break;
-                case "image":
-                    returnObject = this.getImageItemByJsonData(_item);
-                    break;
+        if (_item && _helperObject.model) {
 
-                default:
-                    return false;
+            if(_helperObject.getNativeData === true || _helperObject.getNativeData === "true") {
+                returnObject = this.getNativeItemByJsonData(_item);
+            } else {
+                switch (_helperObject.model) {
+                    case "social":
+                        returnObject = this.getSocialItemByJsonData(_item);
+                        break;
+                    case "image":
+                        returnObject = this.getImageItemByJsonData(_item);
+                        break;
+
+                    default:
+                        return false;
+                }
             }
         }
         return returnObject;
@@ -117,5 +122,18 @@ jjtApingFlickr.service('apingFlickrHelper', ['apingModels', 'apingTimeHelper', '
         }
 
         return imageObject;
+    };
+
+    this.getNativeItemByJsonData = function (_item) {
+
+        var nativeItem = {};
+
+        if ((_item.description).indexOf("posted a photo") <= 0) {
+            return false;
+        }
+
+        nativeItem = _item;
+
+        return nativeItem;
     };
 }]);

@@ -10,6 +10,7 @@ apingApp.config(['$provide', function ($provide) {
         orderBy : "timestamp",
         orderReverse : "true",
         model: "social",
+        getNativeData: false,
     });
 
 }]);

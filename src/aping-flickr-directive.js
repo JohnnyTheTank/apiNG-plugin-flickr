@@ -21,11 +21,22 @@ var jjtApingFlickr = angular.module("jtt_aping_flickr", ['jtt_flickr'])
                 requests.forEach(function (request) {
 
                     var helperObject = {
-                        items: request.items || appSettings.items,
                         model: appSettings.model,
                     };
 
-                    if(request.language) {
+                    if(typeof request.items !== "undefined") {
+                        helperObject.items = request.items;
+                    } else {
+                        helperObject.items = appSettings.items;
+                    }
+
+                    if(typeof appSettings.getNativeData !== "undefined") {
+                        helperObject.getNativeData = appSettings.getNativeData;
+                    } else {
+                        helperObject.getNativeData = false;
+                    }
+
+                    if(typeof request.language !== "undefined") {
                         helperObject.lang = request.language;
                     }
 
