@@ -30,7 +30,7 @@ jjtApingFlickr.service('apingFlickrHelper', ['apingModels', 'apingTimeHelper', '
             if (_data.items) {
 
                 angular.forEach(_data.items, function (value, key) {
-                    if (requestResults.length < _helperObject.items) {
+                    if (_helperObject.items > 0 && requestResults.length < _helperObject.items) {
                         var tempResult = _this.getItemByJsonData(value, _helperObject);
                         if (tempResult) {
                             requestResults.push(tempResult);

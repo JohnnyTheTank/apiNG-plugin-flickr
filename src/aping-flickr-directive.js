@@ -33,25 +33,30 @@ var jjtApingFlickr = angular.module("jtt_aping_flickr", ['jtt_flickr'])
                     } else {
                         helperObject.getNativeData = false;
                     }
+
+                    //create requestObject for api request call
+                    var requestObject = {
+                        items: helperObject.items,
+                    };
                     if(typeof request.language !== "undefined") {
-                        helperObject.lang = request.language;
+                        requestObject.lang = request.language;
                     }
 
                     if(request.userId) {
-                        helperObject.id = request.userId;
-                        flickrFactory.getImagesFromUserById(helperObject).success(function(_data){
+                        requestObject.id = request.userId;
+                        flickrFactory.getImagesFromUserById(requestObject).success(function(_data){
                             apingController.concatToResults(apingFlickrHelper.getObjectByJsonData(_data, helperObject));
                         }).error(function (_data) {
                             //on error
                         });
                     } else if(request.tags) {
-                        helperObject.tags = request.tags;
+                        requestObject.tags = request.tags;
 
                         if(request.tagmode) {
-                            helperObject.tagmode = request.tagmode;
+                            requestObject.tagmode = request.tagmode;
                         }
 
-                        flickrFactory.getImagesByTags(helperObject).success(function(_data){
+                        flickrFactory.getImagesByTags(requestObject).success(function(_data){
                             apingController.concatToResults(apingFlickrHelper.getObjectByJsonData(_data, helperObject));
                         }).error(function (_data) {
                             //on error
