@@ -19,23 +19,20 @@ var jjtApingFlickr = angular.module("jtt_aping_flickr", ['jtt_flickr'])
                 var requests = apingUtilityHelper.parseJsonFromAttributes(attrs.apingFlickr, apingFlickrHelper.getThisPlattformString(), appSettings);
 
                 requests.forEach(function (request) {
-
+                    //create helperObject for helper function call
                     var helperObject = {
                         model: appSettings.model,
                     };
-
                     if(typeof request.items !== "undefined") {
                         helperObject.items = request.items;
                     } else {
                         helperObject.items = appSettings.items;
                     }
-
                     if(typeof appSettings.getNativeData !== "undefined") {
                         helperObject.getNativeData = appSettings.getNativeData;
                     } else {
                         helperObject.getNativeData = false;
                     }
-
                     if(typeof request.language !== "undefined") {
                         helperObject.lang = request.language;
                     }
