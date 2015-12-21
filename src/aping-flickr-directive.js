@@ -34,6 +34,20 @@ var jjtApingFlickr = angular.module("jtt_aping_flickr", ['jtt_flickr'])
                         helperObject.getNativeData = false;
                     }
 
+                    if(helperObject.items == 0) {
+                        return false;
+                    }
+
+                    // -1 is "no explicit limit". same for NaN value
+                    if(helperObject.items < 0 || isNaN(helperObject.items)) {
+                        helperObject.items = undefined;
+                    }
+
+                    // the api has a limit of 20 items per request
+                    if(helperObject.items > 20) {
+                        helperObject.items = 100;
+                    }
+
                     //create requestObject for api request call
                     var requestObject = {
                         items: helperObject.items,
