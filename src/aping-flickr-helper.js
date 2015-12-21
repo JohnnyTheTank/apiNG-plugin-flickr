@@ -71,14 +71,14 @@ jjtApingFlickr.service('apingFlickrHelper', ['apingModels', 'apingTimeHelper', '
 
         //fill _item in socialObject
         $.extend(true, socialObject, {
-            "blog_name": _item.author ? this.getUserNameFromString(_item.author) : false,
-            "blog_id": _item.author_id || false,
-            "blog_link": _item.author_id ? this.getThisPlattformLink() + _item.author_id : false,
+            "blog_name": _item.author ? this.getUserNameFromString(_item.author) : undefined,
+            "blog_id": _item.author_id || undefined,
+            "blog_link": _item.author_id ? this.getThisPlattformLink() + _item.author_id : undefined,
             "timestamp": apingTimeHelper.getTimestampFromDateString(_item.published, 1000, 3600 * 1000),
             "post_url": _item.link,
             "text" : _item.title,
-            "intern_id": (_item.link).split("flickr.com").length >= 2 ? (_item.link).split("flickr.com")[1] : false,
-            "img_url": _item.media ? (_item.media.m).replace("_m.", ".") : false,
+            "intern_id": (_item.link).split("flickr.com").length >= 2 ? (_item.link).split("flickr.com")[1] : undefined,
+            "img_url": _item.media ? (_item.media.m).replace("_m.", ".") : undefined,
         });
 
         socialObject.date_time = new Date(socialObject.timestamp);
@@ -97,14 +97,14 @@ jjtApingFlickr.service('apingFlickrHelper', ['apingModels', 'apingTimeHelper', '
 
         //fill _item in imageObject
         $.extend(true, imageObject, {
-            "blog_name": _item.author || false,
-            "blog_id": _item.author_id || false,
-            "blog_link": _item.author_id ? this.getThisPlattformLink() + _item.author_id : false,
+            "blog_name": _item.author || undefined,
+            "blog_id": _item.author_id || undefined,
+            "blog_link": _item.author_id ? this.getThisPlattformLink() + _item.author_id : undefined,
             "timestamp": apingTimeHelper.getTimestampFromDateString(_item.published, 1000, 3600 * 1000),
             "post_url": _item.link,
-            "intern_id": (_item.link).split("flickr.com").length >= 2 ? (_item.link).split("flickr.com")[1] : false,
-            "img_url": _item.media ? (_item.media.m).replace("_m.", ".") : false,
-            "text": _item.description || false,
+            "intern_id": (_item.link).split("flickr.com").length >= 2 ? (_item.link).split("flickr.com")[1] : undefined,
+            "img_url": _item.media ? (_item.media.m).replace("_m.", ".") : undefined,
+            "text": _item.description || undefined,
         });
 
         if (_item.title) {
