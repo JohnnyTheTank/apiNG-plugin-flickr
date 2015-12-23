@@ -22,6 +22,22 @@ jjtApingFlickr.service('apingFlickrHelper', ['apingModels', 'apingTimeHelper', '
         return userName;
     };
 
+    this.removeOverHeadFromDescription = function (_string) {
+        if(typeof _string !== "undefined") {
+            if(typeof _string === "string") {
+                var parts = _string.split("posted a photo:");
+                if(parts.length>1) {
+                    _string = parts[1].trim();
+                }
+                if(_string === "") {
+                    _string = undefined;
+                }
+            }
+        }
+
+        return _string;
+    };
+
     this.getObjectByJsonData = function (_data, _helperObject) {
         var requestResults = [];
         if (_data) {
@@ -76,10 +92,19 @@ jjtApingFlickr.service('apingFlickrHelper', ['apingModels', 'apingTimeHelper', '
             "blog_link": _item.author_id ? this.getThisPlattformLink() + _item.author_id : undefined,
             "timestamp": apingTimeHelper.getTimestampFromDateString(_item.published, 1000, 3600 * 1000),
             "post_url": _item.link,
-            "text" : _item.title,
             "intern_id": (_item.link).split("flickr.com").length >= 2 ? (_item.link).split("flickr.com")[1] : undefined,
             "img_url": _item.media ? (_item.media.m).replace("_m.", ".") : undefined,
         });
+
+        socialObject.text = _item.description ? this.removeOverHeadFromDescription(apingUtilityHelper.getTextFromHtml(_item.description)) : undefined;
+
+        if (_item.title) {
+            if (socialObject.text) {
+                socialObject.caption = _item.title;
+            } else {
+                socialObject.text = _item.title;
+            }
+        }
 
         socialObject.date_time = new Date(socialObject.timestamp);
 
@@ -97,15 +122,16 @@ jjtApingFlickr.service('apingFlickrHelper', ['apingModels', 'apingTimeHelper', '
 
         //fill _item in imageObject
         $.extend(true, imageObject, {
-            "blog_name": _item.author || undefined,
+            "blog_name": _item.author ? this.getUserNameFromString(_item.author) : undefined,
             "blog_id": _item.author_id || undefined,
             "blog_link": _item.author_id ? this.getThisPlattformLink() + _item.author_id : undefined,
             "timestamp": apingTimeHelper.getTimestampFromDateString(_item.published, 1000, 3600 * 1000),
             "post_url": _item.link,
             "intern_id": (_item.link).split("flickr.com").length >= 2 ? (_item.link).split("flickr.com")[1] : undefined,
             "img_url": _item.media ? (_item.media.m).replace("_m.", ".") : undefined,
-            "text": _item.description || undefined,
         });
+
+        imageObject.text = _item.description ? this.removeOverHeadFromDescription(apingUtilityHelper.getTextFromHtml(_item.description)) : undefined;
 
         if (_item.title) {
             if (imageObject.text) {
