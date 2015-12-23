@@ -133,7 +133,7 @@ jjtApingFlickr.service('apingFlickrHelper', ['apingModels', 'apingTimeHelper', '
 
         imageObject.text = _item.description ? this.removeOverHeadFromDescription(apingUtilityHelper.getTextFromHtml(_item.description)) : undefined;
 
-        if (_item.title) {
+        if (_item.title && _item.title.toLowerCase() !== "untitled") {
             if (imageObject.text) {
                 imageObject.caption = _item.title;
             } else {
