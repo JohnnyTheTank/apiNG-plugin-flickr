@@ -87,13 +87,13 @@ jjtApingFlickr.service('apingFlickrHelper', ['apingModels', 'apingTimeHelper', '
 
         //fill _item in socialObject
         $.extend(true, socialObject, {
-            "blog_name": _item.author ? this.getUserNameFromString(_item.author) : undefined,
-            "blog_id": _item.author_id || undefined,
-            "blog_link": _item.author_id ? this.getThisPlattformLink() + _item.author_id : undefined,
-            "timestamp": apingTimeHelper.getTimestampFromDateString(_item.published, 1000, 3600 * 1000),
-            "post_url": _item.link,
-            "intern_id": (_item.link).split("flickr.com").length >= 2 ? (_item.link).split("flickr.com")[1] : undefined,
-            "img_url": _item.media ? (_item.media.m).replace("_m.", ".") : undefined,
+            blog_name: _item.author ? this.getUserNameFromString(_item.author) : undefined,
+            blog_id: _item.author_id || undefined,
+            blog_link: _item.author_id ? this.getThisPlattformLink() + _item.author_id : undefined,
+            timestamp: apingTimeHelper.getTimestampFromDateString(_item.published, 1000, 3600 * 1000),
+            post_url: _item.link,
+            intern_id: (_item.link).split("flickr.com").length >= 2 ? (_item.link).split("flickr.com")[1] : undefined,
+            img_url: _item.media ? (_item.media.m).replace("_m.", ".") : undefined,
         });
 
         socialObject.text = _item.description ? this.removeOverHeadFromDescription(apingUtilityHelper.getTextFromHtml(_item.description)) : undefined;
@@ -122,14 +122,17 @@ jjtApingFlickr.service('apingFlickrHelper', ['apingModels', 'apingTimeHelper', '
 
         //fill _item in imageObject
         $.extend(true, imageObject, {
-            "blog_name": _item.author ? this.getUserNameFromString(_item.author) : undefined,
-            "blog_id": _item.author_id || undefined,
-            "blog_link": _item.author_id ? this.getThisPlattformLink() + _item.author_id : undefined,
-            "timestamp": apingTimeHelper.getTimestampFromDateString(_item.published, 1000, 3600 * 1000),
-            "post_url": _item.link,
-            "intern_id": (_item.link).split("flickr.com").length >= 2 ? (_item.link).split("flickr.com")[1] : undefined,
-            "img_url": _item.media ? (_item.media.m).replace("_m.", ".") : undefined,
+            blog_name: _item.author ? this.getUserNameFromString(_item.author) : undefined,
+            blog_id: _item.author_id || undefined,
+            blog_link: _item.author_id ? this.getThisPlattformLink() + _item.author_id : undefined,
+            timestamp: apingTimeHelper.getTimestampFromDateString(_item.published, 1000, 3600 * 1000),
+            post_url: _item.link,
+            intern_id: (_item.link).split("flickr.com").length >= 2 ? (_item.link).split("flickr.com")[1] : undefined,
+            thumb_url: _item.media ? _item.media.m : undefined,
+            img_url: _item.media ? (_item.media.m).replace("_m.", ".") : undefined,
         });
+
+        imageObject.native_url = imageObject.img_url;
 
         imageObject.text = _item.description ? this.removeOverHeadFromDescription(apingUtilityHelper.getTextFromHtml(_item.description)) : undefined;
 
