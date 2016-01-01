@@ -72,7 +72,7 @@ Every **apiNG plugin** expects an array of **requests** as html attribute.
 |----------|---------|---------|---------|---------|
 | **`userId`** | `67221971@N06` |  | A single user ID ([Username converter](http://idgettr.com/)) | no |
 | **`items`**  | `10` | `20` | Items per request (`0`-`20`) |  yes  |
-| **`language`**  | `20` | `5` | The display language for the feed. Valid values: `de-de`, `en-us`, `es-us`, `fr-fr`, `it-it`, `ko-kr`, `pt-br`, `zh-hk`  |  yes  |
+| **`language`**  | `de-de` |  | The display language for the feed. Valid values: `de-de`, `en-us`, `es-us`, `fr-fr`, `it-it`, `ko-kr`, `pt-br`, `zh-hk`  |  yes  |
 
 Sample requests:
 * `[{'userId':'67221971@N06'}, {'userId':'74103707@N02'}]`
@@ -84,7 +84,7 @@ Sample requests:
 | **`tags`** | `wood,forest` |  | A comma delimited list of tags to filter the feed by | no |
 | **`tagmode`**  | `any` | `all` | Control whether items must have ALL the tags, or ANY of the tags |  yes  |
 | **`items`**  | `10` | `20` | Items per request (`0`-`20`) |  yes  |
-| **`language`**  | `20` | `5` | The display language for the feed. Valid values: `de-de`, `en-us`, `es-us`, `fr-fr`, `it-it`, `ko-kr`, `pt-br`, `zh-hk`  |  yes  |
+| **`language`**  | `de-de` |  | The display language for the feed. Valid values: `de-de`, `en-us`, `es-us`, `fr-fr`, `it-it`, `ko-kr`, `pt-br`, `zh-hk`  |  yes  |
 
 
 Sample requests:
