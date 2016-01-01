@@ -93,7 +93,6 @@ Sample requests:
 
 ### c) Rate limit
 Visit the official [Flickr API documentation](https://www.flickr.com/services/developer/api/)
-> Limits: Since the Flickr API is quite easy to use, it's also quite easy to abuse, which threatens all services relying on the Flickr API. To help prevent this, we limit the access to the API per key. **If your application stays under 3600 queries per hour across the whole key** (which means the aggregate of all the users of your integration), you'll be fine. If we detect abuse on your key, we will need to expire the key, or turn it off, in order to preserve the Flickr API functionality for others (including us!). We also track usage on other factors as well to ensure no API user abuses the system.
 
 # Licence
 MIT
