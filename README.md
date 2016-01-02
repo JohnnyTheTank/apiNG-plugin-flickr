@@ -24,7 +24,7 @@ You can choose your preferred method of installation:
 * Download from github: [apiNG-plugin-flickr.zip](https://github.com/JohnnyTheTank/apiNG-plugin-flickr/zipball/master)
 
 ### b) Include files
-Include `apiNG-plugin-flickr.min.js` in your apiNG application
+Include `aping-plugin-flickr.min.js` in your apiNG application
 ```html
 <script src="bower_components/apiNG-plugin-flickr/dist/aping-plugin-flickr.min.js"></script>
 ```
