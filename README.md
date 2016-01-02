@@ -26,7 +26,7 @@ You can choose your preferred method of installation:
 ### b) Include files
 Include `apiNG-plugin-flickr.min.js` in your apiNG application
 ```html
-<script src="bower_components/apiNG-plugin-flickr/dist/apiNG-plugin-flickr.min.js"></script>
+<script src="bower_components/apiNG-plugin-flickr/dist/aping-plugin-flickr.min.js"></script>
 ```
 
 ### c) Add dependencies
