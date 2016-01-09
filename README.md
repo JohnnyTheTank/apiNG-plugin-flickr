@@ -5,29 +5,40 @@
 
 # Information
 * **Supported apiNG models: `social`, `image`**
-* Used promise library: [angular-flickr-api-factory](https://github.com/JohnnyTheTank/angular-flickr-api-factory) _(included in minified distribution file)_
+* Used promise library: [angular-flickr-api-factory](https://github.com/JohnnyTheTank/angular-flickr-api-factory) _(included in distribution files)_
 
 # Documentation
     I.  INSTALLATION
     II. USAGE
 
 ## I. INSTALLATION
-    a) Get files
-    b) Include files
+    a) Get file
+    b) Include file
     c) Add dependencies
     d) Add the plugin
 
-### a) Get files
+### a) Get file
 You can choose your preferred method of installation:
 
-* Via bower: `bower install apiNG-plugin-flickr --save`
-* Download from github: [apiNG-plugin-flickr.zip](https://github.com/JohnnyTheTank/apiNG-plugin-flickr/zipball/master)
+Install via either [bower](http://bower.io/), [npm](https://www.npmjs.com/) or downloaded files:
+    1. `bower install apiNG-plugin-flickr --save`
+    2. `npm install aping-plugin-flickr --save`
+    3. download [apiNG-plugin-flickr.zip](https://github.com/JohnnyTheTank/apiNG-plugin-flickr/zipball/master)
 
-### b) Include files
+### b) Include file
 Include `aping-plugin-flickr.min.js` in your apiNG application
+
 ```html
+<!-- when using bower -->
 <script src="bower_components/apiNG-plugin-flickr/dist/aping-plugin-flickr.min.js"></script>
+
+<!-- when using npm -->
+<script src="node_modules/aping-plugin-flickr/dist/aping-plugin-flickr.min.js"></script>
+
+<!-- when using downloaded files -->
+<script src="aping-plugin-flickr.min.js"></script>
 ```
+
 
 ### c) Add dependencies
 Add the module `jtt_aping_flickr` as a dependency to your app module:

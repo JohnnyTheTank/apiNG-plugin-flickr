@@ -1,11 +1,5 @@
 "use strict";
 
-/**
- @author Jonathan Hornung (https://github.com/JohnnyTheTank)
- @url https://github.com/JohnnyTheTank/apiNG-plugin-flickr
- @licence MIT
- */
-
 jjtApingFlickr.service('apingFlickrHelper', ['apingModels', 'apingTimeHelper', 'apingUtilityHelper', function (apingModels, apingTimeHelper, apingUtilityHelper) {
     this.getThisPlattformString = function () {
         return "flickr";
@@ -43,9 +37,9 @@ jjtApingFlickr.service('apingFlickrHelper', ['apingModels', 'apingTimeHelper', '
         if (_data) {
             var _this = this;
 
-            if (_data.items) {
+            if (_data.data && _data.data.items) {
 
-                angular.forEach(_data.items, function (value, key) {
+                angular.forEach(_data.data.items, function (value, key) {
                     if (_helperObject.items > 0 && requestResults.length < _helperObject.items) {
                         var tempResult = _this.getItemByJsonData(value, _helperObject);
                         if (tempResult) {
