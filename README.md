@@ -21,6 +21,7 @@
 You can choose your preferred method of installation:
 
 Install via either [bower](http://bower.io/), [npm](https://www.npmjs.com/) or downloaded files:
+
 1. `bower install apiNG-plugin-flickr --save`
 2. `npm install aping-plugin-flickr --save`
 3. download [apiNG-plugin-flickr.zip](https://github.com/JohnnyTheTank/apiNG-plugin-flickr/zipball/master)
