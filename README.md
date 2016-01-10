@@ -5,28 +5,30 @@
 
 # Information
 * **Supported apiNG models: `social`, `image`**
+* This plugin supports the [`get-native-data` parameter](https://aping.readme.io/docs/configuration#parameters)
 * Used promise library: [angular-flickr-api-factory](https://github.com/JohnnyTheTank/angular-flickr-api-factory) _(included in distribution files)_
 
 # Documentation
-    I.  INSTALLATION
-    II. USAGE
+1. [INSTALLATION](#1-installation)
+    1. Get file
+    2. Include file
+    3. Add dependencies
+    4. Add plugin
+2. [USAGE](2-usage)
+    1. Models
+    2. Requests
+    3. Rate limit
 
-## I. INSTALLATION
-    a) Get file
-    b) Include file
-    c) Add dependencies
-    d) Add the plugin
+## 1. INSTALLATION
 
-### a) Get file
-You can choose your preferred method of installation:
-
+### I. Get file
 Install via either [bower](http://bower.io/), [npm](https://www.npmjs.com/) or downloaded files:
 
 * `bower install apiNG-plugin-flickr --save`
 * `npm install aping-plugin-flickr --save`
 * download [apiNG-plugin-flickr.zip](https://github.com/JohnnyTheTank/apiNG-plugin-flickr/zipball/master)
 
-### b) Include file
+### II. Include file
 Include `aping-plugin-flickr.min.js` in your apiNG application
 
 ```html
@@ -41,14 +43,14 @@ Include `aping-plugin-flickr.min.js` in your apiNG application
 ```
 
 
-### c) Add dependencies
+### III. Add dependencies
 Add the module `jtt_aping_flickr` as a dependency to your app module:
 ```js
 var app = angular.module('app', ['jtt_aping', 'jtt_aping_flickr']);
 ```
 
-### d) Add the plugin
-Add the plugin's directive `aping-flickr="[]"` to your apiNG directive and configure your requests (_**II. USAGE**_)
+### IV. Add the plugin
+Add the plugin's directive `aping-flickr="[]"` to your apiNG directive and [configure your requests](#ii-requests)
 ```html
 <aping
     template-url="templates/social.html"
@@ -58,12 +60,9 @@ Add the plugin's directive `aping-flickr="[]"` to your apiNG directive and confi
 </aping>
 ```
 
-## II. USAGE
-    a) Models
-    b) Requests
-    c) Rate limit
+## 2. USAGE
 
-### a) Models
+### I. Models
 Supported apiNG models
 
 |  model   | content | support | max items<br>per request | (native) default items<br>per request |
@@ -76,7 +75,7 @@ Supported apiNG models
 * partly: _the source platfrom provides just partly usable results_
 
 
-### b) Requests
+### II. Requests
 Every **apiNG plugin** expects an array of **requests** as html attribute.
 
 #### Requests by User
@@ -103,7 +102,7 @@ Sample requests:
 * `[{'tags':'fcbayern'}, {'tags':'readmadrid'}]`
 * `[{'tags':'ocean,sea', 'tagmode':'any', 'items':10}]`
 
-### c) Rate limit
+### III. Rate limit
 Visit the official [Flickr API documentation](https://www.flickr.com/services/developer/api/)
 
 # Licence
