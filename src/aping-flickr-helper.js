@@ -11,19 +11,19 @@ jjtApingFlickr.service('apingFlickrHelper', ['apingModels', 'apingTimeHelper', '
 
     this.getUserNameFromString = function (_string) {
         var userName = false;
-        userName = _string.replace("nobody@flickr.com (","");
-        userName = userName.substr(0, userName.length-1);
+        userName = _string.replace("nobody@flickr.com (", "");
+        userName = userName.substr(0, userName.length - 1);
         return userName;
     };
 
     this.removeOverHeadFromDescription = function (_string) {
-        if(typeof _string !== "undefined") {
-            if(typeof _string === "string") {
+        if (typeof _string !== "undefined") {
+            if (typeof _string === "string") {
                 var parts = _string.split("posted a photo:");
-                if(parts.length>1) {
+                if (parts.length > 1) {
                     _string = parts[1].trim();
                 }
-                if(_string === "") {
+                if (_string === "") {
                     _string = undefined;
                 }
             }
@@ -57,7 +57,7 @@ jjtApingFlickr.service('apingFlickrHelper', ['apingModels', 'apingTimeHelper', '
         var returnObject = {};
         if (_item && _helperObject.model) {
 
-            if(_helperObject.getNativeData === true || _helperObject.getNativeData === "true") {
+            if (_helperObject.getNativeData === true || _helperObject.getNativeData === "true") {
                 returnObject = this.getNativeItemByJsonData(_item);
             } else {
                 switch (_helperObject.model) {
@@ -148,15 +148,9 @@ jjtApingFlickr.service('apingFlickrHelper', ['apingModels', 'apingTimeHelper', '
     };
 
     this.getNativeItemByJsonData = function (_item) {
-
-        var nativeItem = {};
-
         if ((_item.description).indexOf("posted a photo") <= 0) {
             return false;
         }
-
-        nativeItem = _item;
-
-        return nativeItem;
+        return _item;
     };
 }]);

@@ -1,7 +1,7 @@
 {
   "name": "aping-plugin-flickr",
-  "version": "0.7.0",
-  "description": "flickr plugin for apiNG",
+  "version": "0.7.5",
+  "description": "Flickr plugin for apiNG",
   "main": "dist/aping-plugin-flickr.min.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -24,7 +24,7 @@
   "bugs": {
     "url": "https://github.com/JohnnyTheTank/apiNG-plugin-flickr/issues"
   },
-  "homepage": "https://github.com/JohnnyTheTank/apiNG-plugin-flickr#readme",
+  "homepage": "https://github.com/JohnnyTheTank/apiNG-plugin-flickr",
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-contrib-concat": "^0.5.1",

@@ -14,7 +14,7 @@
     2. Include file
     3. Add dependencies
     4. Add plugin
-2. [USAGE](2-usage)
+2. [USAGE](#2-usage)
     1. Models
     2. Requests
     3. Rate limit
