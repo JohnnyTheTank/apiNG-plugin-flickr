@@ -7,18 +7,25 @@
     <script src="../bower_components/jquery/dist/jquery.min.js"></script>
     <script src="../bower_components/angular/angular.min.js"></script>
     <script src="../bower_components/apiNG/dist/aping.min.js"></script>
-    <script src="aping-config.js"></script>
     <script src="app.js"></script>
     <script src="../dist/aping-plugin-flickr.js"></script>
 </head>
 <body ng-app="app">
+
     <h1>{'tags':'fcbayern', 'tagmode':'all'}</h1>
-    <aping model="image"
-           items="2"
-           aping-flickr="[{'tags':'fcbayern', 'tagmode':'all'}]">
+    <aping
+            template-url="template.html"
+            model="image"
+            items="2"
+            aping-flickr="[{'tags':'fcbayern', 'tagmode':'all'}]">
     </aping>
     <hr>
+
     <h1>{'userId':'67221971@N06'}</h1>
-    <aping model="image" aping-flickr="[{'userId':'67221971@N06'}]"></aping>
+    <aping
+            template-url="template.html"
+            model="image"
+            aping-flickr="[{'userId':'67221971@N06'}]">
+    </aping>
 </body>
 </html>

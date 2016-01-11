@@ -1,6 +1,6 @@
 /**
     @name: aping-plugin-flickr 
-    @version: 0.7.5 (10-01-2016) 
+    @version: 0.7.6 (11-01-2016) 
     @author: Jonathan Hornung 
     @url: https://github.com/JohnnyTheTank/apiNG-plugin-flickr 
     @license: MIT
@@ -35,7 +35,7 @@ var jjtApingFlickr = angular.module("jtt_aping_flickr", ['jtt_flickr'])
                         helperObject.getNativeData = false;
                     }
 
-                    if (helperObject.items == 0) {
+                    if (helperObject.count === 0 || helperObject.count === '0') {
                         return false;
                     }
 
@@ -86,7 +86,7 @@ jjtApingFlickr.service('apingFlickrHelper', ['apingModels', 'apingTimeHelper', '
         return "flickr";
     };
 
-    this.getThisPlattformLink = function () {
+    this.getThisPlatformLink = function () {
         return "http://flickr.com/";
     };
 
@@ -121,7 +121,7 @@ jjtApingFlickr.service('apingFlickrHelper', ['apingModels', 'apingTimeHelper', '
             if (_data.data && _data.data.items) {
 
                 angular.forEach(_data.data.items, function (value, key) {
-                    if (_helperObject.items > 0 && requestResults.length < _helperObject.items) {
+                    if (typeof _helperObject.items === "undefined" || (_helperObject.items > 0 && requestResults.length < _helperObject.items)) {
                         var tempResult = _this.getItemByJsonData(value, _helperObject);
                         if (tempResult) {
                             requestResults.push(tempResult);
@@ -164,7 +164,7 @@ jjtApingFlickr.service('apingFlickrHelper', ['apingModels', 'apingTimeHelper', '
         $.extend(true, socialObject, {
             blog_name: _item.author ? this.getUserNameFromString(_item.author) : undefined,
             blog_id: _item.author_id || undefined,
-            blog_link: _item.author_id ? this.getThisPlattformLink() + _item.author_id : undefined,
+            blog_link: _item.author_id ? this.getThisPlatformLink() + _item.author_id : undefined,
             timestamp: apingTimeHelper.getTimestampFromDateString(_item.published, 1000, 3600 * 1000),
             post_url: _item.link,
             intern_id: (_item.link).split("flickr.com").length >= 2 ? (_item.link).split("flickr.com")[1] : undefined,
@@ -199,7 +199,7 @@ jjtApingFlickr.service('apingFlickrHelper', ['apingModels', 'apingTimeHelper', '
         $.extend(true, imageObject, {
             blog_name: _item.author ? this.getUserNameFromString(_item.author) : undefined,
             blog_id: _item.author_id || undefined,
-            blog_link: _item.author_id ? this.getThisPlattformLink() + _item.author_id : undefined,
+            blog_link: _item.author_id ? this.getThisPlatformLink() + _item.author_id : undefined,
             timestamp: apingTimeHelper.getTimestampFromDateString(_item.published, 1000, 3600 * 1000),
             post_url: _item.link,
             intern_id: (_item.link).split("flickr.com").length >= 2 ? (_item.link).split("flickr.com")[1] : undefined,

@@ -28,7 +28,7 @@ var jjtApingFlickr = angular.module("jtt_aping_flickr", ['jtt_flickr'])
                         helperObject.getNativeData = false;
                     }
 
-                    if (helperObject.items == 0) {
+                    if (helperObject.count === 0 || helperObject.count === '0') {
                         return false;
                     }
 
