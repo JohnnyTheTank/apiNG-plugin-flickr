@@ -1,6 +1,6 @@
 {
   "name": "aping-plugin-flickr",
-  "version": "0.7.6",
+  "version": "0.7.7",
   "description": "Flickr plugin for apiNG",
   "main": "dist/aping-plugin-flickr.min.js",
   "scripts": {

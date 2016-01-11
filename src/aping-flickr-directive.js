@@ -10,7 +10,7 @@ var jjtApingFlickr = angular.module("jtt_aping_flickr", ['jtt_flickr'])
 
                 var appSettings = apingController.getAppSettings();
 
-                var requests = apingUtilityHelper.parseJsonFromAttributes(attrs.apingFlickr, apingFlickrHelper.getThisPlattformString(), appSettings);
+                var requests = apingUtilityHelper.parseJsonFromAttributes(attrs.apingFlickr, apingFlickrHelper.getThisPlatformString(), appSettings);
 
                 requests.forEach(function (request) {
                     //create helperObject for helper function call
@@ -28,7 +28,7 @@ var jjtApingFlickr = angular.module("jtt_aping_flickr", ['jtt_flickr'])
                         helperObject.getNativeData = false;
                     }
 
-                    if (helperObject.count === 0 || helperObject.count === '0') {
+                    if (helperObject.items === 0 || helperObject.items === '0') {
                         return false;
                     }
 

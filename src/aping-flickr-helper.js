@@ -1,7 +1,7 @@
 "use strict";
 
 jjtApingFlickr.service('apingFlickrHelper', ['apingModels', 'apingTimeHelper', 'apingUtilityHelper', function (apingModels, apingTimeHelper, apingUtilityHelper) {
-    this.getThisPlattformString = function () {
+    this.getThisPlatformString = function () {
         return "flickr";
     };
 
@@ -77,7 +77,7 @@ jjtApingFlickr.service('apingFlickrHelper', ['apingModels', 'apingTimeHelper', '
     };
 
     this.getSocialItemByJsonData = function (_item) {
-        var socialObject = apingModels.getNew("social", this.getThisPlattformString());
+        var socialObject = apingModels.getNew("social", this.getThisPlatformString());
 
         //fill _item in socialObject
         $.extend(true, socialObject, {
@@ -112,7 +112,7 @@ jjtApingFlickr.service('apingFlickrHelper', ['apingModels', 'apingTimeHelper', '
     };
 
     this.getImageItemByJsonData = function (_item) {
-        var imageObject = apingModels.getNew("image", this.getThisPlattformString());
+        var imageObject = apingModels.getNew("image", this.getThisPlatformString());
 
         //fill _item in imageObject
         $.extend(true, imageObject, {

@@ -1,6 +1,6 @@
 /**
     @name: aping-plugin-flickr 
-    @version: 0.7.6 (11-01-2016) 
+    @version: 0.7.7 (11-01-2016) 
     @author: Jonathan Hornung 
     @url: https://github.com/JohnnyTheTank/apiNG-plugin-flickr 
     @license: MIT
@@ -17,7 +17,7 @@ var jjtApingFlickr = angular.module("jtt_aping_flickr", ['jtt_flickr'])
 
                 var appSettings = apingController.getAppSettings();
 
-                var requests = apingUtilityHelper.parseJsonFromAttributes(attrs.apingFlickr, apingFlickrHelper.getThisPlattformString(), appSettings);
+                var requests = apingUtilityHelper.parseJsonFromAttributes(attrs.apingFlickr, apingFlickrHelper.getThisPlatformString(), appSettings);
 
                 requests.forEach(function (request) {
                     //create helperObject for helper function call
@@ -35,7 +35,7 @@ var jjtApingFlickr = angular.module("jtt_aping_flickr", ['jtt_flickr'])
                         helperObject.getNativeData = false;
                     }
 
-                    if (helperObject.count === 0 || helperObject.count === '0') {
+                    if (helperObject.items === 0 || helperObject.items === '0') {
                         return false;
                     }
 
@@ -82,7 +82,7 @@ var jjtApingFlickr = angular.module("jtt_aping_flickr", ['jtt_flickr'])
     }]);;"use strict";
 
 jjtApingFlickr.service('apingFlickrHelper', ['apingModels', 'apingTimeHelper', 'apingUtilityHelper', function (apingModels, apingTimeHelper, apingUtilityHelper) {
-    this.getThisPlattformString = function () {
+    this.getThisPlatformString = function () {
         return "flickr";
     };
 
@@ -158,7 +158,7 @@ jjtApingFlickr.service('apingFlickrHelper', ['apingModels', 'apingTimeHelper', '
     };
 
     this.getSocialItemByJsonData = function (_item) {
-        var socialObject = apingModels.getNew("social", this.getThisPlattformString());
+        var socialObject = apingModels.getNew("social", this.getThisPlatformString());
 
         //fill _item in socialObject
         $.extend(true, socialObject, {
@@ -193,7 +193,7 @@ jjtApingFlickr.service('apingFlickrHelper', ['apingModels', 'apingTimeHelper', '
     };
 
     this.getImageItemByJsonData = function (_item) {
-        var imageObject = apingModels.getNew("image", this.getThisPlattformString());
+        var imageObject = apingModels.getNew("image", this.getThisPlatformString());
 
         //fill _item in imageObject
         $.extend(true, imageObject, {
