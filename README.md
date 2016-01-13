@@ -1,18 +1,22 @@
 [logo]: http://aping.io/logo/320/aping-plugin.png "apiNG Plugin"
 ![apiNG][logo]
 
+[![npm version](https://badge.fury.io/js/aping-plugin-flickr.png)](https://badge.fury.io/js/aping-plugin-flickr)
+[![Bower version](https://badge.fury.io/bo/apiNG-plugin-flickr.png)](https://badge.fury.io/bo/apiNG-plugin-flickr)
+
 **_apiNG-plugin-flickr_** is a [Flickr API](https://www.flickr.com/services/api/) plugin for [**apiNG**](https://github.com/JohnnyTheTank/apiNG).
 
 # Information
 * **Supported apiNG models: `social`, `image`**
-* This plugin supports the [`get-native-data` parameter](https://aping.readme.io/docs/configuration#parameters)
+* This plugin supports the [`get-native-data` parameter](https://aping.readme.io/docs/advanced#parameters)
 * Used promise library: [angular-flickr-api-factory](https://github.com/JohnnyTheTank/angular-flickr-api-factory) _(included in distribution files)_
+* :warning: This plugin don't works on SSL pages, because the Flickr API only supports http
 
 # Documentation
 1. [INSTALLATION](#1-installation)
     1. Get file
     2. Include file
-    3. Add dependencies
+    3. Add dependency
     4. Add plugin
 2. [USAGE](#2-usage)
     1. Models
@@ -43,7 +47,7 @@ Include `aping-plugin-flickr.min.js` in your apiNG application
 ```
 
 
-### III. Add dependencies
+### III. Add dependency
 Add the module `jtt_aping_flickr` as a dependency to your app module:
 ```js
 var app = angular.module('app', ['jtt_aping', 'jtt_aping_flickr']);
