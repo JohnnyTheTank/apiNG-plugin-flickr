@@ -26,10 +26,11 @@
 ## 1. INSTALLATION
 
 ### I. Get file
-Install via either [bower](http://bower.io/), [npm](https://www.npmjs.com/) or downloaded files:
+Install via either [bower](http://bower.io/), [npm](https://www.npmjs.com/), CDN (jsDelivr) or downloaded files:
 
 * `bower install apiNG-plugin-flickr --save`
 * `npm install aping-plugin-flickr --save`
+* use [CDN file](https://www.jsdelivr.com/projects/aping.plugin-flickr)
 * download [apiNG-plugin-flickr.zip](https://github.com/JohnnyTheTank/apiNG-plugin-flickr/zipball/master)
 
 ### II. Include file
@@ -41,6 +42,9 @@ Include `aping-plugin-flickr.min.js` in your apiNG application
 
 <!-- when using npm -->
 <script src="node_modules/aping-plugin-flickr/dist/aping-plugin-flickr.min.js"></script>
+
+<!-- when using cdn file -->
+<script src="//cdn.jsdelivr.net/aping.plugin-flickr/latest/aping-plugin-flickr.min.js"></script>
 
 <!-- when using downloaded files -->
 <script src="aping-plugin-flickr.min.js"></script>
