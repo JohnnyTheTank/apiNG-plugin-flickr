@@ -1,6 +1,6 @@
 "use strict";
 
-var jjtApingFlickr = angular.module("jtt_aping_flickr", ['jtt_flickr'])
+angular.module("jtt_aping_flickr", ['jtt_flickr'])
     .directive('apingFlickr', ['apingFlickrHelper', 'apingUtilityHelper', 'flickrFactory', function (apingFlickrHelper, apingUtilityHelper, flickrFactory) {
         return {
             require: '?aping',

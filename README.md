@@ -54,7 +54,7 @@ Include `aping-plugin-flickr.min.js` in your apiNG application
 ### III. Add dependency
 Add the module `jtt_aping_flickr` as a dependency to your app module:
 ```js
-var app = angular.module('app', ['jtt_aping', 'jtt_aping_flickr']);
+angular.module('app', ['jtt_aping', 'jtt_aping_flickr']);
 ```
 
 ### IV. Add the plugin
