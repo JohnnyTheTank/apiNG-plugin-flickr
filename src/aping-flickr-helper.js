@@ -81,7 +81,7 @@ angular.module("jtt_aping_flickr")
             var socialObject = apingModels.getNew("social", this.getThisPlatformString());
 
             //fill _item in socialObject
-            $.extend(true, socialObject, {
+            angular.extend(socialObject, {
                 blog_name: _item.author ? this.getUserNameFromString(_item.author) : undefined,
                 blog_id: _item.author_id || undefined,
                 blog_link: _item.author_id ? this.getThisPlatformLink() + _item.author_id : undefined,
@@ -116,7 +116,7 @@ angular.module("jtt_aping_flickr")
             var imageObject = apingModels.getNew("image", this.getThisPlatformString());
 
             //fill _item in imageObject
-            $.extend(true, imageObject, {
+            angular.extend(imageObject, {
                 blog_name: _item.author ? this.getUserNameFromString(_item.author) : undefined,
                 blog_id: _item.author_id || undefined,
                 blog_link: _item.author_id ? this.getThisPlatformLink() + _item.author_id : undefined,
@@ -128,7 +128,6 @@ angular.module("jtt_aping_flickr")
             });
 
             imageObject.native_url = imageObject.img_url;
-
             imageObject.text = _item.description ? this.removeOverHeadFromDescription(apingUtilityHelper.getTextFromHtml(_item.description)) : undefined;
 
             if (_item.title && _item.title.toLowerCase() !== "untitled") {
