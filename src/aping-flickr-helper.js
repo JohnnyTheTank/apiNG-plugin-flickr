@@ -11,14 +11,13 @@ angular.module("jtt_aping_flickr")
         };
 
         this.getUserNameFromString = function (_string) {
-            var userName = false;
-            userName = _string.replace("nobody@flickr.com (", "");
+            var userName = _string.replace("nobody@flickr.com (", "");
             userName = userName.substr(0, userName.length - 1);
             return userName;
         };
 
         this.removeOverHeadFromDescription = function (_string) {
-            if (typeof _string !== "undefined") {
+            if (angular.isDefined(_string)) {
                 if (typeof _string === "string") {
                     var parts = _string.split("posted a photo:");
                     if (parts.length > 1) {
@@ -29,7 +28,6 @@ angular.module("jtt_aping_flickr")
                     }
                 }
             }
-
             return _string;
         };
 
@@ -41,7 +39,7 @@ angular.module("jtt_aping_flickr")
                 if (_data.data && _data.data.items) {
 
                     angular.forEach(_data.data.items, function (value, key) {
-                        if (typeof _helperObject.items === "undefined" || (_helperObject.items > 0 && requestResults.length < _helperObject.items)) {
+                        if (angular.isUndefined(_helperObject.items) || (_helperObject.items > 0 && requestResults.length < _helperObject.items)) {
                             var tempResult = _this.getItemByJsonData(value, _helperObject);
                             if (tempResult) {
                                 requestResults.push(tempResult);
@@ -49,7 +47,6 @@ angular.module("jtt_aping_flickr")
                         }
                     });
                 }
-
             }
             return requestResults;
         };
@@ -88,8 +85,11 @@ angular.module("jtt_aping_flickr")
                 timestamp: apingTimeHelper.getTimestampFromDateString(_item.published, 1000, 3600 * 1000),
                 post_url: _item.link,
                 intern_id: (_item.link).split("flickr.com").length >= 2 ? (_item.link).split("flickr.com")[1] : undefined,
+                thumb_url: _item.media ? _item.media.m : undefined,
                 img_url: _item.media ? (_item.media.m).replace("_m.", ".") : undefined,
             });
+
+            socialObject.native_url = socialObject.img_url;
 
             socialObject.text = _item.description ? this.removeOverHeadFromDescription(apingUtilityHelper.getTextFromHtml(_item.description)) : undefined;
 
