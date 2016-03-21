@@ -11,7 +11,6 @@
 * **Supported apiNG models: `social`, `image`**
 * This plugin supports the [`get-native-data` parameter](https://aping.readme.io/docs/advanced#parameters)
 * Used promise library: [angular-flickr-api-factory](https://github.com/JohnnyTheTank/angular-flickr-api-factory) _(included in distribution files)_
-* :warning: This plugin don't works on SSL pages, because the Flickr API only supports http
 
 # Documentation
 1. [INSTALLATION](#1-installation)

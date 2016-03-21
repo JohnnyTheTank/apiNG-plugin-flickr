@@ -1,6 +1,6 @@
 /**
     @name: aping-plugin-flickr 
-    @version: 0.7.8 (28-01-2016) 
+    @version: 0.7.9 (21-03-2016) 
     @author: Jonathan Hornung 
     @url: https://github.com/JohnnyTheTank/apiNG-plugin-flickr 
     @license: MIT
@@ -278,13 +278,13 @@ angular.module("jtt_flickr", [])
     }])
     .service('flickrSearchDataService', function () {
         this.getApiBaseUrl = function (_params) {
-            return "http://api.flickr.com/services/feeds/photos_public.gne";
+            return "https://api.flickr.com/services/feeds/photos_public.gne";
         };
 
         this.fillDataInObjectByList = function (_object, _params, _list) {
 
             angular.forEach(_list, function (value, key) {
-                if (typeof _params[value] !== "undefined") {
+                if (angular.isDefined(_params[value])) {
                     _object.object[value] = _params[value];
                 }
             });
@@ -293,9 +293,6 @@ angular.module("jtt_flickr", [])
         };
 
         this.getNew = function (_type, _params) {
-
-            var defaultLimit = 20;
-
             var flickrSearchData = {
                 object: {
                     jsoncallback:'JSON_CALLBACK',
