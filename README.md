@@ -2,8 +2,8 @@
 ![apiNG][logo]
 
 [![Join the chat at https://gitter.im/JohnnyTheTank/apiNG](https://img.shields.io/badge/GITTER-join%20chat-green.svg)](https://gitter.im/JohnnyTheTank/apiNG?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-[![npm version](https://badge.fury.io/js/aping-plugin-flickr.png)](https://badge.fury.io/js/aping-plugin-flickr)
-[![Bower version](https://badge.fury.io/bo/apiNG-plugin-flickr.png)](https://badge.fury.io/bo/apiNG-plugin-flickr)
+[![npm version](https://badge.fury.io/js/aping-plugin-flickr.svg)](https://badge.fury.io/js/aping-plugin-flickr)
+[![Bower version](https://badge.fury.io/bo/apiNG-plugin-flickr.svg)](https://badge.fury.io/bo/apiNG-plugin-flickr)
 
 **_apiNG-plugin-flickr_** is a [Flickr API](https://www.flickr.com/services/api/) plugin for [**apiNG**](https://github.com/JohnnyTheTank/apiNG).
 
