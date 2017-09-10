@@ -44,7 +44,7 @@ Include `aping-plugin-flickr.min.js` in your apiNG application
 <script src="node_modules/aping-plugin-flickr/dist/aping-plugin-flickr.min.js"></script>
 
 <!-- when using cdn file -->
-<script src="//cdn.jsdelivr.net/aping.plugin-flickr/latest/aping-plugin-flickr.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/aping-plugin-flickr@latest/dist/aping-plugin-flickr.min.js"></script>
 
 <!-- when using downloaded files -->
 <script src="aping-plugin-flickr.min.js"></script>
